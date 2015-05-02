@@ -1,5 +1,8 @@
 # get-parent-dir
 
+[![Build Status](http://img.shields.io/travis/jarofghosts/get-parent-dir.svg?style=flat)](https://travis-ci.org/jarofghosts/get-parent-dir)
+[![npm install](http://img.shields.io/npm/dm/get-parent-dir.svg?style=flat)](https://www.npmjs.org/package/get-parent-dir)
+
 Find the parent directory from a required module.
 
 ## example
