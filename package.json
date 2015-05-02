@@ -1,0 +1,26 @@
+{
+  "name": "get-parent-dir",
+  "version": "1.0.0",
+  "description": "find parent dir from node module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarofghosts/get-parent-dir.git"
+  },
+  "keywords": [
+    "parent",
+    "dir"
+  ],
+  "author": "jesse keane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jarofghosts/get-parent-dir/issues"
+  },
+  "homepage": "https://github.com/jarofghosts/get-parent-dir#readme",
+  "devDependencies": {
+    "tape": "^4.0.0"
+  }
+}
