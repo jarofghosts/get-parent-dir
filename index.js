@@ -1,45 +1,46 @@
 var path = require('path')
-  , fs = require('fs')
+
+var fileexists = require('utils-fs-exists')
 
 module.exports = findParent
 
-function findParent(ready) {
+function findParent (ready) {
   var parent = module.parent
-    , bits
+  var bits
 
-  while(parent.parent) {
+  while (parent.parent) {
     parent = parent.parent
   }
 
   bits = parent.filename.split(path.sep)
   bits = bits.slice(0, bits.indexOf('node_modules'))
 
-  if(ready) {
-    return fs.exists(packageDir(bits), tryNext)
+  if (ready) {
+    return fileexists(packageDir(bits), tryNext)
   }
 
-  while(!fs.existsSync(packageDir(bits))) {
+  while (!fileexists.sync(packageDir(bits))) {
     bits.pop()
   }
 
   return bits.length ? bits.join(path.sep) : null
 
-  function tryNext(exists) {
-    if(exists) {
+  function tryNext (exists) {
+    if (exists) {
       return ready(bits.join(path.sep))
     }
 
-    if(!bits.length) {
+    if (!bits.length) {
       return ready(null)
     }
 
     bits.pop()
 
-    fs.exists(packageDir(bits), tryNext)
+    fileexists(packageDir(bits), tryNext)
   }
 }
 
-function packageDir(bits) {
+function packageDir (bits) {
   return bits.concat('package.json').join(path.sep)
 }
 
